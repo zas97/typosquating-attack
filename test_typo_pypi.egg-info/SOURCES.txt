@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+script.py
+setup.cfg
+setup.py
+test_typo_pypi.egg-info/PKG-INFO
+test_typo_pypi.egg-info/SOURCES.txt
+test_typo_pypi.egg-info/dependency_links.txt
+test_typo_pypi.egg-info/top_level.txt
