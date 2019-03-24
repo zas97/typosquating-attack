@@ -1,4 +1,3 @@
-MANIFEST.in
 README.md
 script.py
 setup.cfg

